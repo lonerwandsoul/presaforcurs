@@ -44,7 +44,8 @@ def s01_title(d):
     d.rect(742, 128, 500, 400, fill="0A1424", radius=16, alpha=0.55)
     d.image(SCREENS + "01_dashboard.png", 728, 114, 500, 383,
             radius=12, crop=SHOT_CROP, border="2B4364")
-    d.text(728, 514, 500, "Реальный интерфейс системы · октябрь 2025", size=11.5, color="8FA6C4")
+    d.text(728, 514, 500, "Скриншот интерфейса · главная страница (дашборд) · октябрь 2025",
+           size=11, color="8FA6C4")
 
     # автор
     d.line(80, 596, 1200, 596, color="24405F", width=1)
@@ -381,10 +382,12 @@ def s08_dashboard(d):
     d.text(80, 648, 700, "Все значения считаются SQL-запросами из базы при открытии страницы", size=11, color=MUTED, italic=True)
 
 
-def _shot_slide(d, num, eyebrow_txt, title, subtitle, img, bullets, kpis, note):
+def _shot_slide(d, num, eyebrow_txt, title, subtitle, img, bullets, kpis, note, fig=None):
     slide_frame(d, num, eyebrow_txt, title, subtitle)
     d.rect(80, 214, 700, 448, fill=CARD, radius=14, shadow=True)
     d.image(SCREENS + img, 92, 226, 676, 424, radius=8, crop=SHOT_CROP)
+    if fig:
+        d.text(92, 652, 620, fig, size=10, color=MUTED, italic=True)
 
     x = 812
     y = 222
@@ -413,7 +416,8 @@ def s09_production(d):
          "Диаграмма Парето: главная причина потерь"],
         [("12 480", "Выпуск, изделий", TXT), ("2,4 %", "Брак, 300 шт.", RED),
          ("87 %", "Загрузка цехов", "B07416")],
-        "Каждая строка формы сразу меняет KPI на дашборде")
+        "Каждая строка формы сразу меняет KPI на дашборде",
+        fig="Скриншот из пояснительной записки (рис. 2) — раздел «Производственная аналитика»")
 
 
 def s10_finance(d):
@@ -427,7 +431,8 @@ def s10_finance(d):
          "Лидер — сайт: 3,93 млн ₽ (46 % выручки)"],
         [("8,54 млн ₽", "Выручка за октябрь", TXT), ("834 820 ₽", "Прибыль", "0B7F71"),
          ("9,8 %", "Рентабельность", "0B7F71")],
-        "Финансовый и производственный контуры считаются из одной базы")
+        "Финансовый и производственный контуры считаются из одной базы",
+        fig="Скриншот из пояснительной записки (рис. 3) — раздел «Финансовая аналитика»")
 
 
 def s11_orders(d):
